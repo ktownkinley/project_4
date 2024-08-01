@@ -1,13 +1,40 @@
 Project Proposal & Collaboration Map
 
+Overview:
+By designing a CNN model we hope to accurately predict whether there is a respiratory infection present in anterior radiography images. Image classification models typically aim for an accuracy score above 90%, we want our model to align with industry standard. 
 
-Is anyone interested in learning R?
-Do we want to build another website vs powerpoint?
-Do we have a plan B if the model can't get over 75%?
-If everything goes well, is there any type of expansion we want to consider?
-What are we all excited to contribute?
-Any notes on structuring files for this project? 
+Tech Stack:
+Model - Keras, TensorFlow
+Database - MongoDB for image storage
+Website - Javascript, CSS, HTML
+Server- AWS 
 
+Potential Expansion:
+-multiple angle xrays
+-multiple condition prediction (classes)
+-other graphs based on general respiratory infections
+-make the website multiples pages 
+-models accuracy and loss printed with image
+-allow user to play with the model 
+
+Contributions:
+Model - Everyone attempt to maximize
+      - Analyze model results - Calvin
+Database - Mckinley
+Website - Kathryn + Jack
+Server- Mckinley + everyone
+      - Javascript Jack
+
+Compare and finalize model by Sunday (Aug 4)
+Spend the final week polishing website and stat visuals
+
+Presentation:
+Website styling 
+Multiple pages
+Interactivity
+Graphs of accuracy vs epochs
+Slide deck explaining process/model iterations
+Animation??
 
 
 
