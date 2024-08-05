@@ -11,16 +11,16 @@ let modelScore  = d3.select('#counter2');
 
 
 //get random image source 
-
+let imagePath = '../static/test_xrays/NORMAL/IM-0001-0001.jpeg';
 // find what model predicts from image 
-var prediction = 'Pneumonia'
+var prediction = 'Normal'
 
 // change image based off input source and store the result (actual diagnosis)
 var result = ''
 
 function changeImage(imageSrc) {
     image.attr('src', imageSrc);
-    result = 'Pneumonia'
+    result = 'Normal'
 };
 
 //enable dropdown after image has been generated and disable after:
@@ -52,8 +52,7 @@ function resetAll(){
 // generate new image
 imageButton.on('click', function(){
 
-        changeImage('test/PNEUMONIA/person8_virus_27.jpeg')
-
+        changeImage(imagePath)
         enableDropdown();
         resetAll();
 
