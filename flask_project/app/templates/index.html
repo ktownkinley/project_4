@@ -72,7 +72,7 @@
                 </form>
             </div>
         </div>
-        
+
     </nav>
 
     <div class="press-release">
@@ -81,6 +81,33 @@
 
     <!-- Model buttons and interface here -->
 
+    <button class='imageButton' type="button">Generate X-Ray</button>
+
+    <img id='image' src='' width="400">
+
+
+    <p>How would you diagnose this X-Ray?</p>
+    <select class="dropdownMenu" disabled>
+        <option value="option1"></option>
+        <option value="option2">Normal</option>
+        <option value="option3">Pneumonia</option>
+
+    </select>
+
+    <p> Model's Diagnosis: </p>
+    <div id='text'> Waiting for your guess...</div>
+    <br>
+    <button class='revealButton' disabled type="button">Reveal Actual Diagnosis</button>
+    <p> The Patient's Diagnosis was: </p>
+    <p class='diagnosis'></p>
+
+    <div>
+        <p>Your Score: <span id="counter1">0</span></p>
+        <p>Model's Score: <span id="counter2">0</span></p>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="../static/js/CNN_logic.js"></script>
 </body>
 
 
