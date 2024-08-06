@@ -1,6 +1,6 @@
 // Select all the interactive  elements in the html
-let imageButton = d3.select(".imageButton");
-let revealButton = d3.select('.revealButton');
+let imageButton = d3.select("#imageButton");
+let revealButton = d3.select('#revealButton');
 let dropdown = d3.select('.dropdownMenu');
 let modelGuess = d3.select('#text');
 let image = d3.select('#image');
@@ -10,6 +10,7 @@ let userScore  = d3.select('#counter1');
 let modelScore  = d3.select('#counter2');
 
 
+
 let imagePath = '../static/test_xrays/NORMAL/IM-0001-0001.jpeg';
 // find what model predicts from image 
 var prediction = 'Normal'
@@ -17,7 +18,12 @@ var prediction = 'Normal'
 // change image based off input source and store the result (actual diagnosis)
 var result = ''
 
-function changeImage() {
+function changeImage(imageSrc) {
+    image.attr('src', imageSrc);
+    result = 'Normal'
+};
+
+function createImage() {
     //get random image
     fetch('/api/v1/images/randomone')
     .then(response => response.json())

@@ -4,8 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guessing Game</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    
+    <div class="container text-center my-4">
+
+        <h2 class="mb-4">Are You Smarter Than MyXray?</h2>
+
+        <div class="d-flex flex-column align-items-center mb-5">
+            <button class="btn btn-secondary mb-4" id = 'imageButton' type="button">Generate X-Ray</button>
+            <img id="image" src="" class="img-fluid" width="500">
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-6 mb-3 mb-md-0">
+                <p>How Would You Diagnose This X-Ray?</p>
+                <select class="form-control dropdownMenu" disabled>
+                    <option value="option1"></option>
+                    <option value="option2">Normal</option>
+                    <option value="option3">Pneumonia</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <p>Model's Diagnosis:</p>
+                <div id="text">Waiting for your guess...</div>
+            </div>
+        </div>
+
+        <button class="btn btn-secondary mb-4" id="revealButton" disabled type="button">Reveal Actual Diagnosis</button>
+
+        <div class="d-flex justify-content-center mb-4">
+            <span class="diagnosis"></span>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <p>Your Score: <span id="counter1">0</span></p>
+            </div>
+            <div class="col-md-6">
+                <p>Model's Score: <span id="counter2">0</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../static/js/CNN_logic.js"></script>    
+
 </body>
 </html>
