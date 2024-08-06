@@ -29,16 +29,31 @@ function changeImage() {
         const imageData = data.image_data;
         const mimeType = data.mime_type;
         const actualResult = data.choice;
+        const imageID = data.image_id;
 
         // Create an img element and set the src to the base64 image data
         // NEED TO EITHER RETURN DATA OR CREATE/UPDATE ELEMENT
         // const imgElement = document.createElement('img');
         // imgElement.src = `data:${mimeType};base64,${imageData}`;
         // document.body.appendChild(imgElement);
+        return imageID, actualResult;
     })
     .catch(error => console.error('Error fetching image:', error));
 };
 
+function modelPredict(imageID, actualResult){
+    fetch('/api/v1/images/predict/' + imageID + '/' + actualResult)
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            console.error(data.error);
+            return;
+        }
+        const modelResult = data.model;
+        return modelResult;
+    });
+    return modelResult;
+}
 //enable dropdown after image has been generated and disable after:
 function enableDropdown() {
     dropdown.attr('disabled', null);
