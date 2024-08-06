@@ -1,7 +1,7 @@
 /* color scheme-- Light blue: #467da3, Dark blue: 002f5b, White: ffffff */
 
 /* Custom background color for the navbar */
-.bg-custom {
+.navbar-custom {
   background-color: #467da3; /* Change this to your preferred background color */
 }
 
@@ -37,4 +37,13 @@ h5 {
   font-family: sans-serif;
   color: navy;
   font-size: 1rem;
+}
+input.form-control {
+  height:100%;
+
+}
+
+.carousel-item img {
+  max-height: 800px; /* Set the maximum height you want */
+  object-fit: contain; /* Ensure the image fits within the container without distortion */
 }
