@@ -6,7 +6,7 @@ from flask_cors import CORS
 from bson import json_util, ObjectId
 from datetime import datetime
 
-from app.api import crime_api_v1, weather_api_v1
+from app.api import images_api_v1
 
 class MongoJsonEncoder(JSONEncoder):
     def default(self, obj):
@@ -24,8 +24,7 @@ def create_app():
     app = Flask(__name__)
     CORS(app)
     app.json_encoder = MongoJsonEncoder
-    app.register_blueprint(crime_api_v1)
-    app.register_blueprint(weather_api_v1)
+    app.register_blueprint(images_api_v1)
 
     @app.route("/")
     def welcome():
@@ -37,6 +36,12 @@ def create_app():
     def presentation():
         return (
             render_template("presentation.html")
+        )
+    
+    @app.route("/game")
+    def game():
+        return(
+            render_template("game.html")
         )
         
     return app
