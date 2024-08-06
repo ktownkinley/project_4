@@ -11,7 +11,7 @@ import base64
 images_api_v1 = Blueprint(
     'images_api_v1',  'images_api_v1', url_prefix='/api/v1/images')
 
-model = load_model('chest_Xray.keras')
+model = load_model('app/chest_Xray.keras')
 
 @images_api_v1.route('/randomone', methods=['GET'])
 def api_get_random_image():
