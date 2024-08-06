@@ -38,5 +38,11 @@ def create_app():
         return (
             render_template("presentation.html")
         )
+    
+    @app.route("/game")
+    def game():
+        return(
+            render_template("game.html")
+        )
         
     return app
