@@ -15,7 +15,7 @@ https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia/data
 # Index
 * The "flask_project" folder houses the backend flask and database files as well as the static files for front end development.
 * The model itself was exported as .h5 file found in the "model-xray/Model" folder
-* The "CNN Model" folder houses the jupyter notebook file that trained and tested the model. Also, the outputted graphs and charts from the model's performance in pneumonia detection.
+* The "CNN Model" folder houses the jupyter notebook file that trained and tested the model as well as a table on model optimmization. Also, contains the outputted graphs and charts from the model's performance in pneumonia detection.
 
 # Results
 
