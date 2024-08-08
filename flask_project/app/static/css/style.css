@@ -13,7 +13,10 @@
 /* .form-control {
   width: 100%;
 } */
+.btn-secondary{
+  background-color: "#002f5b;!"
 
+}
 
 /* Ensure text color is white for navbar items */
 .navbar-brand,
@@ -68,7 +71,7 @@ body {
 }
 
 .dropdownMenu {
-  
+
   font-size: 19px !important;
   width: 100%; 
   margin: 0 auto;  
@@ -77,7 +80,7 @@ body {
 p {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 20px;
-  color:#002f5b;
+  color:#ffff;
 }
 
 #counter1 {
@@ -95,12 +98,18 @@ p {
 h1 {
 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 font-size: 4rem;
-color:#002f5b;
+color:#ffff;
 }
 
 h2 {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 3rem;
-  color:#002f5b;
+  color:#ffff;
   
   }
+
+h3 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 2.5rem;
+  color:#ffff;
+}
