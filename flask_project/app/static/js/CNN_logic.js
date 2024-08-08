@@ -2,16 +2,14 @@
 let imageButton = d3.select("#imageButton");
 let revealButton = d3.select('#revealButton');
 let dropdown = d3.select('.dropdownMenu');
-let modelGuess = d3.select('#text');
-let image = d3.select('#image');
+let image = d3.select('#xrayimage');
 
-let diagnosis = d3.select('.diagnosis')
 let userScore  = d3.select('#counter1');
 let modelScore  = d3.select('#counter2');
 
 
 
-let imagePath = '../static/test_xrays/NORMAL/IM-0001-0001.jpeg';
+let imagePath = '';
 // find what model predicts from image 
 var prediction = 'Normal'
 
@@ -79,9 +77,7 @@ function disableReveal(){
 }
 
 // reset to how it was before image generated, except for score
-function resetAll(){
-    modelGuess.text('Waiting for your guess...')
-    diagnosis.text('');
+function reset(){
     dropdown.property('value', 'option1')
 };
 
@@ -91,7 +87,7 @@ imageButton.on('click', function(){
 
         changeImage(imagePath)
         enableDropdown();
-        resetAll();
+        reset();
 
     var userSelects = ''
 
@@ -99,14 +95,12 @@ imageButton.on('click', function(){
     dropdown.on('change', function(){
         userSelects = dropdown.select('option:checked').text();
         disableDropdown();
-        modelGuess.text(prediction);
         enableReveal();
     });
 
     // reveal model guess
     revealButton.on('click', function(){
-        diagnosis.text(result)
-
+    
       if (userSelects == result){
         let currentScore = parseInt(userScore.text()) + 1
         userScore.text(currentScore)
