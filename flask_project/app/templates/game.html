@@ -11,10 +11,10 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+
     <!-- Our D3 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"
-        integrity="sha512-vc58qvvBdrDR4etbxMdlTt4GBQk1qjvyORR2nrsPsFPyrs+/u5c3+1Ct6upOgdZoIl7eq6k3a1UPDSNAQi/32A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
 </head>
 
 <body>
@@ -55,7 +55,7 @@
                 <div class="card p-5 mb-3" style="background-color: #467da3;">
                     <div class="row">
                         <div class="col-lg-4 d-grid text-center">
-                            <button class="btn btn-light" type="button">Generate</button>
+                            <button class="btn btn-light" id = 'imageButton' type="button">Generate</button>
                         </div>
                         <div class="col-lg-8 text-center py-3">
                             <h2>1. Generate an X-ray</h2>
@@ -70,17 +70,16 @@
                             <h2>2. Make your prediction</h2>
                         </div>
 
-
                         <div class="dropdown d-grid col-4">
-                            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            <button class="btn btn-light dropdown-toggle dropdownMenu" disabled type="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 Dropdown
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item">Pneumonia</a></li>
                                 <li><a class="dropdown-item">Healthy</a></li>
-
                             </ul>
+
                         </div>
                     </div>
                 </div>
@@ -96,18 +95,16 @@
                 <div class="card p-5" style="background-color: #467da3;">
                     <div class="row">
                         <div class="col-lg-4 d-grid mb-5 text-center">
-                            <button class="btn btn-light" type="button">Reveal</button>
+                            <button class="btn btn-light" id ='revealButton' disabled type="button">Reveal</button>
                         </div>
                         <div class="col-lg-8 mb-5 text-center py-3">
                             <h2>3. Check the true diagnosis</h2>
                         </div>
 
-                        <hr>
-                        <div class="col-6 mt-4 text-center">
-                            <h3>Your Score:<span id="counter1">0</span></h3>
-                        </div>
-                        <div class="col-6 mt-4 text-center">
-                            <h3>Model's Score: <span id="counter2">0</span></h3>
+                      <div class="col-6 text-center">
+                            <h3>Your Score: <span style="font-size: 35px;" id="counter1">0</span></h3>
+                        <div class="col-6 text-center">
+                            <h3>MyXray's Score: <span style="font-size: 35px;" id="counter2">0</span></h3>
                         </div>
                     </div>
                 </div>
@@ -127,44 +124,7 @@
     </div>
     </div>
 
-    <!--         
-        <div class="d-flex flex-column align-items-center mb-5">
-            <button class="btn btn-secondary mb-4" id='imageButton' type="button">Generate X-Ray</button>
-            <img id="image" src="" class="img-fluid" width="500">
-        </div>
 
-        <div class="row mb-4">
-            <div class="col-md-6 mb-3 mb-md-0">
-                <p>How Would You Diagnose This X-Ray?</p>
-                <select class="form-control dropdownMenu" disabled>
-                    <option value="option1"></option>
-                    <option value="option2">Normal</option>
-                    <option value="option3">Pneumonia</option>
-                </select>
-            </div>
-
-            <div class="col-md-6">
-                <p>Model's Diagnosis:</p>
-                <div id="text">Waiting for your guess...</div>
-            </div>
-        </div>
-
-        <button class="btn btn-secondary mb-4" id="revealButton" disabled type="button">Reveal Actual Diagnosis</button>
-
-        <div class="d-flex justify-content-center mb-4">
-            <span class="diagnosis"></span>
-
-        </div>
-
-        <div class="row">
-            <div class="col-md-6">
-                <p>Your Score: <span id="counter1">0</span></p>
-            </div>
-            <div class="col-md-6">
-                <p>Model's Score: <span id="counter2">0</span></p>
-            </div>
-        </div>
-    </div> -->
 
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script> -->
