@@ -32,13 +32,13 @@ def create_app():
             render_template("index.html")
         )
     
-    @app.route("/presentation")
+    @app.route("/slides.html")
     def presentation():
         return (
-            render_template("presentation.html")
+            render_template("slides.html")
         )
     
-    @app.route("/game")
+    @app.route("/game.html")
     def game():
         return(
             render_template("game.html")
