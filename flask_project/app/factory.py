@@ -26,7 +26,7 @@ def create_app():
     app.json_encoder = MongoJsonEncoder
     app.register_blueprint(images_api_v1)
 
-    @app.route("/")
+    @app.route("/index.html")
     def welcome():
         return (
             render_template("index.html")
