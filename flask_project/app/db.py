@@ -1,6 +1,6 @@
-
+from bson import ObjectId
 from app.mongo_cred import uri
-from flask import current_app, g, Flask
+from flask import Flask
 from flask_pymongo import PyMongo
 import random
 from io import BytesIO
@@ -14,12 +14,13 @@ db = mongo.db
 
 def get_random_image():
     try:
-        collections = ['normal.files', 'pneumonia.files']
+        collections = ['normal', 'pneumonia']
         choice = random.choice(collections)
         fs = gridfs.GridFS(db, choice)
         files = list(fs.find())
         if not files:
-            print("No files found in the database.")
+            raise ValueError("No files found in the database.")
+        
         # Randomly select a file
         random_file = random.choice(files)
 
@@ -28,12 +29,13 @@ def get_random_image():
         image_data = BytesIO(grid_out.read())
         return image_data, choice, random_file._id
     except Exception as e:
-        return e
+        raise e
 
 
 def retrieve_image(image_id, choice):
     try:
-        fs = gridfs.GridFS(db, f'{choice}.files')
+        image_id = ObjectId(image_id)
+        fs = gridfs.GridFS(db, choice)
         files = list(fs.find())
         if not files:
             print("No files found in the database.")

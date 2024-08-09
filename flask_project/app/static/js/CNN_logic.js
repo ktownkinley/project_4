@@ -7,7 +7,7 @@ let image = d3.select('#xrayimage');
 let userScore  = d3.select('#counter1');
 let modelScore  = d3.select('#counter2');
 
-
+var userSelects = '';
 var imageID = null;
 var actualResult = null;
 var modelResult = null;
@@ -18,7 +18,7 @@ function changeImage(imageSrc) {
 
 function createImage() {
     //get random image
-    fetch('/api/v1/images/randomone')
+    fetch('http://54.183.242.182:5000/api/v1/images/randomone')
     .then(response => response.json())
     .then(data => {
         if (data.error) {
@@ -37,7 +37,7 @@ function createImage() {
 };
 
 function modelPredict(imageID, actualResult){
-    fetch('/api/v1/images/predict/' + imageID + '/' + actualResult)
+    fetch('http://54.183.242.182:5000/api/v1/images/predict/' + imageID + '/' + actualResult)
     .then(response => response.json())
     .then(data => {
         if (data.error) {
@@ -75,33 +75,29 @@ function reset(){
 imageButton.on('click', function(){
 
         createImage();
-        modelPredict(imageID, actualResult);
         enableDropdown();
         reset();
-
-    var userSelects = '';
-
+        var userSelects = '';
     // update model guess, after user selects from dropdown
     dropdown.on('change', function(){
         userSelects = dropdown.select('option:checked').text();
         disableDropdown();
+        modelPredict(imageID, actualResult);
         enableReveal();
     });
-
-    // reveal model guess
-    revealButton.on('click', function(){
+});
+// reveal model guess
+revealButton.on('click', function(){
     
-      if (userSelects == actualResult){
+    if (userSelects.toLowerCase() == actualResult.toString()){
         let currentScore = parseInt(userScore.text()) + 1;
         userScore.text(currentScore);
-      };
+    };
 
-      if (modelResult == actualResult){
+    if (modelResult.toString() == actualResult.toString()){
         let currentScoreModel = parseInt(modelScore.text()) + 1;
         modelScore.text(currentScoreModel);
-      };
-      disableReveal();
-
-    });
+    };
+    disableReveal();
 
 });
